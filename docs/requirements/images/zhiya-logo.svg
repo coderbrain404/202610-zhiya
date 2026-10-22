@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="280" viewBox="0 0 800 280">
+<rect width="800" height="280" fill="white"/>
+<g transform="translate(26 25)">
+<circle cx="111" cy="113" r="102" fill="#EBF6EC"/>
+<path d="M38 144 Q72 122 112 153 Q148 122 186 144 L186 195 Q147 178 112 207 Q77 178 38 195 Z" fill="#F7F1DE" stroke="#27744D" stroke-width="10" stroke-linejoin="round"/>
+<path d="M112 154 L112 207" stroke="#27744D" stroke-width="8" stroke-linecap="round"/>
+<path d="M112 149 Q107 115 114 80" fill="none" stroke="#27744D" stroke-width="11" stroke-linecap="round"/>
+<path d="M114 90 C60 98 62 54 83 46 C118 42 130 70 114 90 Z" fill="#64B77A"/>
+<path d="M116 71 C120 28 163 25 171 35 C177 61 144 87 116 71 Z" fill="#85C66B"/>
+<circle cx="170" cy="106" r="7" fill="#F3C56A"/><circle cx="58" cy="91" r="5" fill="#F3C56A"/>
+</g>
+<text x="266" y="160" font-size="113" font-family="Noto Sans CJK SC, sans-serif" font-weight="700" fill="#266B4A">知芽</text>
+<text x="272" y="210" font-size="28" letter-spacing="3" font-family="Noto Sans CJK SC, sans-serif" fill="#748D7A">阅读有温度 · 好奇有回声</text>
+</svg>
