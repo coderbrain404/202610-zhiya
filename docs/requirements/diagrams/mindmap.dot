@@ -1,0 +1,19 @@
+digraph G {
+ graph [bgcolor="transparent", rankdir=LR, splines=polyline, nodesep=0.28, ranksep=0.62, pad=0.28, fontname="Noto Sans CJK SC"];
+ node [shape=box, style="rounded,filled", color="#B8D6C0", fillcolor="#F0F8F0", fontname="Noto Sans CJK SC", fontsize=11, margin="0.18,0.10"];
+ edge [color="#93B39D", penwidth=1.5, arrowsize=0.55];
+ root [label="知芽 · 原创绘本与互动阅读", shape=box, style="rounded,filled,bold", fillcolor="#236B4B", fontcolor="white", fontsize=16, margin="0.26,0.24"];
+ users [label="家长与幼儿", fillcolor="#FFF3DB"];
+ stories [label="绘本阅读", fillcolor="#FFF3DB"];
+ ai [label="领域智能体", fillcolor="#E6F3FF"];
+ records [label="学习反馈", fillcolor="#FFF3DB"];
+ platform [label="平台与管理", fillcolor="#EDF5EE"];
+ hardware [label="硬件拓展（可选）", fillcolor="#F2F2F2"];
+ root -> {users stories ai records platform hardware};
+ u1 [label="家长账号 / 阅读档案"];u2 [label="亲子共读 / 儿童自主模式"];u3 [label="时长限制 / 家长权限"]; users->{u1 u2 u3};
+ s1 [label="绘本库 / 适龄推荐"];s2 [label="原创4～6页故事 / 模板插图"];s3 [label="图文翻页 / 语音朗读"];s4 [label="受控故事分支（P1）"]; stories->{s1 s2 s3 s4};
+ a1 [label="知识库检索 RAG"];a2 [label="情境提问 / 动态引导"];a3 [label="故事草稿 / 情节状态"];a4 [label="语音问答 ASR+LLM+TTS"]; ai->{a1 a2 a3 a4};
+ r1 [label="阅读记录 / 小结"];r2 [label="亲子延伸活动"]; records->{r1 r2};
+ p1 [label="原创草稿家长审核"];p2 [label="内容管理 / 权限保护"];p3 [label="HTTPS 上线"];platform->{p1 p2 p3};
+ h1 [label="墨水屏 / 翻页键"];h2 [label="语音输入 / 扬声器"];hardware->{h1 h2};
+}

@@ -1,0 +1,28 @@
+digraph C {
+ graph [bgcolor="transparent", rankdir=TB, splines=polyline, nodesep=0.24, ranksep=0.50, pad=0.12, fontname="Noto Sans CJK SC"];
+ node [shape=record, style="filled", fillcolor="#F6FBF7", color="#9AB5A5", fontname="Noto Sans CJK SC", fontsize=9.3, margin="0.10,0.09"];
+ edge [color="#82988A", arrowsize=0.55, fontsize=8, fontname="Noto Sans CJK SC"];
+ Guardian [label="{GuardianUser 家长账户|id: UUID\laccount: string\lpassword_hash: string\l}",fillcolor="#E8F4EC"];
+ Child [label="{ChildProfile 阅读档案|id: UUID\lguardian_id: UUID\lage_band: enum\linterests: json\l}"];
+ Book [label="{Storybook 绘本|id: UUID\ltitle: string\lsource_type: enum\lstatus: enum\lversion: int\l}"];
+ Page [label="{StoryPage 绘本页面|id: UUID\lstorybook_id: UUID\lpage_no: int\ltext: string\limage_ref: string\l}"];
+ Session [label="{ReadingSession 阅读会话|id: UUID\lprofile_id: UUID\lmode: enum\ltime_limit: int\lstatus: enum\l}",fillcolor="#E8F4EC"];
+ Event [label="{InteractionEvent 互动事件|id: UUID\lsession_id: UUID\lpage_no: int\lchoice_id: UUID?\l}"];
+ Branch [label="{StoryBranch 有限情节分支|id: UUID\lfrom_page_no: int\lchoice_label: string\lnext_page_no: int\lreview_status: enum\l}", fillcolor="#FDF3DE"];
+ Report [label="{ReadingReport 阅读报告|id: UUID\lsession_id: UUID\lsummary: text\lactivities: json\l}"];
+ Knowledge [label="{KnowledgeItem 教育知识|id: UUID\lsource: string\lage_band: enum\lreview_status: enum\l}",fillcolor="#EAF1FF"];
+ Device [label="{ReadingDevice 可选设备|id: UUID\ldevice_code: string\lbinding_status: enum\l}",fillcolor="#F2F2F2"];
+ {rank=same; Guardian Book Knowledge}
+ {rank=same; Child Page Device}
+ {rank=same; Event Report}
+ Guardian -> Child [label="1 → 0..*", dir=forward];
+ Guardian -> Session [label="1 → 0..*", constraint=false];
+ Child -> Session [label="1 → 0..*",dir=forward];
+ Book -> Page [label="1 → 1..*",dir=forward];
+ Book -> Session [label="1 → 0..*", constraint=false];
+ Book -> Branch [label="1 → 0..*", dir=forward];
+ Branch -> Event [label="选项引用",style=dashed, constraint=false];
+ Session -> Event [label="1 → 0..*",dir=forward];
+ Session -> Report [label="1 → 0..1",dir=forward];
+ Guardian -> Device [label="1 → 0..*",constraint=false,style=dashed];
+}
